@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block body %}
+  <table>
+	<colgroup>
+		<col id="num" />
+			<col id="ch_date" />
+            <col id="f" />
+            <col id="i" />
+            <col id="o" />
+            <col id="bd" />
+			<col id="addr" />
+			<col id="res_ch" />
+			<col id="resolve" />
+			<col id="s" />
+			<col id="id" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th scope="col">№</th>
+				<th scope="col">Организация</th>
+                <th scope="col">Дата проверки</th>
+                <th scope="col">Фамилия</th>
+                <th scope="col">Имя</th>
+                <th scope="col">Отчество</th>
+				<th scope="col">Дата рождения</th>
+				<th scope="col">Адрес регистрации</th>
+				<th scope="col">Результат проверки</th>
+				<th scope="col">Резолюция</th>
+		</tr>
+	</thead>
+	<tbody>
+  {% for candidats in candidats %}
+	<tr>
+	<td>{{ candidats.id }}</td>
+    <td>{{ candidats.company }}</td>
+    <td>{{ candidats.date_check }}</td>
+    <td>{{ candidats.surname }}</td>
+	<td>{{ candidats.name }}</td>
+	<td>{{ candidats.patronymic }}</td>
+	<td>{{ candidats.bday }}</td>
+	<td>{{ candidats.address }}</td>
+	<td>{{ candidats.result_check }}</td>
+    <td>{{ candidats.resolve }}</td>
+	</tr>
+  {% endfor %}
+	</tbody>
+  </table>
+{% endblock %}
