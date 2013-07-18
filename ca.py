@@ -52,18 +52,28 @@ def show_entries():
 def add_entry():
     return render_template('add.html')
 
+@app.route('/edit/<id>')
+def edit_entry(id):
+    #db = get_db()
+    cur = g.db.execute('select * from candidats where id = ?', [id])
+    candidats = cur.fetchall()
+    return render_template('edit_entry.html', candidats=candidats)
+
 @app.route('/write', methods=['POST'])
 def write_entry():
-    name = request.form['name']
-    company = request.form['company']
-    if name == '' or company == '': 
+    if request.form['company'] == '' or \
+    request.form['data_check'] == '' or \
+    request.form['surname'] == '' or \
+    request.form['name'] == '' or \
+    request.form['patronymic'] == '' or \
+    request.form['resolve'] == '':
         return redirect(url_for('add_entry'))
     g.db.execute('insert into candidats (company, data_check, surname, name, patronymic, bday, address, result_check, resolve) values (?, ?, ?, ?, ?, ?, ?, ?, ?)',
             [request.form['company'], request.form['data_check'], request.form['surname'], request.form['name'], request.form['patronymic'], request.form['bday'], request.form['address'], request.form['result_check'], request.form['resolve']])
     g.db.commit()
-    flash('New entry was successfully posted')
+    #flash('New entry was successfully posted')
     return redirect(url_for('show_entries'))
     
 if __name__ == '__main__':
     #init_db()
-    app.run()
+    app.run(host='0.0.0.0')

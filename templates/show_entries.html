@@ -42,6 +42,7 @@
 	<td>{{ candidats.address }}</td>
 	<td>{{ candidats.result_check }}</td>
     <td>{{ candidats.resolve }}</td>
+    <td><a href="{{ url_for('edit_entry', id = candidats.id) }}">Править</a></td>
 	</tr>
   {% endfor %}
 	</tbody>
