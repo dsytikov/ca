@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+п»ї# -*- coding: utf-8 -*-
 """
     Описание
 """
@@ -9,7 +9,8 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
 
 # Начальная конфигурация
-DATABASE = 'D:\py\ca\ca.db'
+#DATABASE = 'D:\py\ca\ca.db'
+DATABASE = 'C:\py\ca\ca.db'
 DEBUG = True
 SECRET_KEY = 'development key'
 USERNAME = 'admin'
@@ -55,9 +56,12 @@ def add_entry():
 @app.route('/edit/<id>')
 def edit_entry(id):
     #db = get_db()
-    cur = g.db.execute('select * from candidats where id = ?', [id])
-    candidats = cur.fetchall()
-    return render_template('edit_entry.html', candidats=candidats)
+    #cur = g.db.execute('select * from candidats where id = ?', [id])
+    #candidats = cur.fetchall()
+	cur = g.db.execute('select id, company, data_check, surname, name, patronymic, bday, address, result_check, resolve from candidats where id = ?', [id])
+	candidats = [dict(id=row[0], company=row[1], data_check=row[2], surname=row[3], name=row[4], patronymic=row[5], bday=row[6], address=row[7], \
+	result_check=row[8], resolve=row[9]) for row in cur.fetchall()]
+	return render_template('edit.html', candidats=candidats)
 
 @app.route('/write', methods=['POST'])
 def write_entry():

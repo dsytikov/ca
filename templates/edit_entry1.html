@@ -1,22 +1,22 @@
 ﻿{% extends "layout.html" %}
 {% block body %}
 <table>
- {% for candidats in candidats %}   
+ {% for enrty in candidats %}   
  <tr>
     <td>Фамилия</td>
-    <td>{{ candidats.id }}</td>
+    <td>{{ entry.surname }}</td>
  </tr>
  <tr>
     <td>Имя</td>
-    <td>{{ candidats.name }}</td>
+    <td>{{ entry.name }}</td>
  </tr>
  <tr>
     <td>Отчество</td>
-    <td>{{ candidats.patronymic }}</td>
+    <td>{{ entry.patronymic }}</td>
  </tr>
  <tr>
     <td>Организация</td>
-    <td>{{ candidats.company }}</td>
+    <td>{{ entry.company }}</td>
  </tr>
  {% endfor %}
 </table>
