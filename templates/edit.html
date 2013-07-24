@@ -1,14 +1,14 @@
-﻿{% extends "layout.html" %}
-{% block body %}
+﻿{% block body %}
+<form action="{{ url_for('update_entry') }}" method=post>
 <table>
  {% for entry in candidats %}   
  <tr>
-    <td>Компания</td>
-    <td>{{ entry.company }}</td>
+    <td>Организация</td>
+    <td><input type=text size=30 name=company value={{ entry.company }}></td>
  </tr>
  <tr>
     <td>Дата проверки</td>
-    <td>{{ entry.date_check }}</td>
+    <td><input type=text size=30 name=date_check value={{ entry.date_check }}></td>
  </tr>
  <tr>
     <td>Фамилия</td>
@@ -24,20 +24,25 @@
  </tr>
  <tr>
     <td>Дата рождения</td>
-    <td>{{ entry.bday }}</td>
+    <td><input type=text size=30 name=bday value={{ entry.bday }}></td>
  </tr>
  <tr>
     <td>Адрес регистрации</td>
-    <td>{{ entry.address }}</td>
+    <td><input type=text size=30 name=address value={{ entry.address }}></td>
  </tr>
  <tr>
     <td>Результат проверки</td>
-    <td>{{ entry.result_check }}</td>
+    <td><input type=text size=30 name=result_check value={{ entry.result_check }}></td>
  </tr>
  <tr>
     <td>Резолюция</td>
-    <td>{{ entry.resolve }}</td>
+    <td><input type=text size=30 name=resolve value={{ entry.resolve }}></td>
+ </tr>
+ <tr>
+    <td><input type=hidden name=id value={{ entry.id }}></td>
+    <td><input type=submit value=Записать></td>
  </tr>
 </table>
+</form>
  {% endfor %}
  {% endblock %}
