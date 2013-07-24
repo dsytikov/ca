@@ -7,6 +7,6 @@ create table candidats (
   patronymic TEXT(30) not null,
   bday TEXT(10) not null,
   address TEXT(30) not null,
-  result_check TEXT(50) not null,
+  result_check TEXT(100) not null,
   resolve TEXT(30) not null
 );

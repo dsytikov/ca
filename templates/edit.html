@@ -1,5 +1,10 @@
 ﻿{% block body %}
 <form action="{{ url_for('update_entry') }}" method=post>
+<p>
+{% for entry in candidats %}
+{{ entry }}
+{% endfor %}
+</p>
 <table>
  {% for entry in candidats %}   
  <tr>
@@ -8,7 +13,7 @@
  </tr>
  <tr>
     <td>Дата проверки</td>
-    <td><input type=text size=30 name=date_check value={{ entry.date_check }}></td>
+    <td><input type=text size=30 name=date_check value={{ entry.data_check }}></td>
  </tr>
  <tr>
     <td>Фамилия</td>
