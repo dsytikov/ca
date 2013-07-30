@@ -1,19 +1,15 @@
 ﻿{% block body %}
 <form action="{{ url_for('update_entry') }}" method=post>
-<p>
-{% for entry in candidats %}
-{{ entry }}
-{% endfor %}
-</p>
+<p></p>
 <table>
  {% for entry in candidats %}   
  <tr>
     <td>Организация</td>
-    <td><input type=text size=30 name=company value={{ entry.company }}></td>
+    <td><input type=text size=30 name=company value='{{ entry.company }}'></td>
  </tr>
  <tr>
     <td>Дата проверки</td>
-    <td><input type=text size=30 name=date_check value={{ entry.data_check }}></td>
+    <td><input type=text size=30 name=date_check value='{{ entry.data_check }}'></td>
  </tr>
  <tr>
     <td>Фамилия</td>
@@ -29,19 +25,19 @@
  </tr>
  <tr>
     <td>Дата рождения</td>
-    <td><input type=text size=30 name=bday value={{ entry.bday }}></td>
+    <td><input type=text size=30 name=bday value='{{ entry.bday }}'></td>
  </tr>
  <tr>
     <td>Адрес регистрации</td>
-    <td><input type=text size=30 name=address value={{ entry.address }}></td>
+    <td><textarea rows=3 cols=30 name=address>{{ entry.address }}</textarea></td>
  </tr>
  <tr>
     <td>Результат проверки</td>
-    <td><input type=text size=30 name=result_check value={{ entry.result_check }}></td>
+    <td><textarea rows=3 cols=30 name=result_check>{{ entry.result_check }}</textarea></td>
  </tr>
  <tr>
     <td>Резолюция</td>
-    <td><input type=text size=30 name=resolve value={{ entry.resolve }}></td>
+    <td><input type=text size=30 name=resolve value='{{ entry.resolve }}'></td>
  </tr>
  <tr>
     <td><input type=hidden name=id value={{ entry.id }}></td>

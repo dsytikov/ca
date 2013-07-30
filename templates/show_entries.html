@@ -2,34 +2,18 @@
 {% block body %}
 <a href="{{ url_for('add_entry') }}">Добавить запись</a>
   <table>
-	<colgroup>
-		<col id="num" />
-			<col id="ch_date" />
-            <col id="f" />
-            <col id="i" />
-            <col id="o" />
-            <col id="bd" />
-			<col id="addr" />
-			<col id="res_ch" />
-			<col id="resolve" />
-			<col id="s" />
-			<col id="id" />
-	</colgroup>
-	<thead>
 		<tr>
-			<th scope="col">№</th>
-				<th scope="col">Организация</th>
-                <th scope="col">Дата проверки</th>
-                <th scope="col">Фамилия</th>
-                <th scope="col">Имя</th>
-                <th scope="col">Отчество</th>
-				<th scope="col">Дата рождения</th>
-				<th scope="col">Адрес регистрации</th>
-				<th scope="col">Результат проверки</th>
-				<th scope="col">Резолюция</th>
+			<td><b>№</b></td>
+			<td><b>Организация</b></td>
+            <td><b>Дата проверки</b></td>
+            <td><b>Фамилия</b></td>
+            <td><b>Имя</b></td>
+            <td><b>Отчество</b></td>
+			<td><b>Дата рождения</b></td>
+			<td><b>Адрес регистрации</b></td>
+			<td><b>Результат проверки</b></td>
+			<td><b>Резолюция</b></td>
 		</tr>
-	</thead>
-	<tbody>
   {% for entry in candidats %}
 	<tr>
 	<td>{{ entry.id }}</td>
@@ -45,6 +29,5 @@
     <td><a href="{{ url_for('edit_entry', id = entry.id) }}">Править</a></td>
 	</tr>
   {% endfor %}
-	</tbody>
   </table>
 {% endblock %}
